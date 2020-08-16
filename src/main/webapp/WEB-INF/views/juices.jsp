@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="templates/header.jsp"%>
@@ -19,38 +18,28 @@
 
 
 
-            <h2>Lista dostępnych produktów</h2>
-            Soki w opakowaniach:
-            <select id="box">
-                <c:forEach items="${boxes}" var="box">
-                    <option value=${box.id}>${box.name}</option>
-                </c:forEach>
-            </select>
+            <h2>Soki dostępne w poniższych smakach:</h2>
+
+
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>Numer</th>
+                        <!-- <th>Numer</th> -->
                         <th>Nazwa</th>
                         <th>Opis</th>
-                        <th>Opakowanie</th>
-                        <th>Cena</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-
                     <c:forEach items="${products}" var="product">
-
-                            <td>${product.id}</td>
-                            <td>${product.name}</td>
-                            <td>${product.description}</td>
-                            <td>${product.box.name}</td>
-                            <td>${product.price} zł</td>
-                            <td>
-                                <a href="/newOrder/addProduct/<c:out value="${product.id}"/>">DODAJ DO ZAMÓWIENIA</a>
-
-                            </td>
+                        <tr>
+                            <c:set var = "boxId" scope = "session" value = "${product.box.id}"/>
+                            <c:if test = "${boxId == 1}">
+                                <!--<td> ${product.id}</td> -->
+                                <td>${product.name}</td>
+                                <td>${product.description}</td>
+                            </c:if>
                         </tr>
                     </c:forEach>
 
@@ -58,40 +47,6 @@
                     </tbody>
                 </table>
             </div>
-            <h2>ZAMÓWIENIE</h2>
-            <sec:authorize access="isAuthenticated()">
-                <a class="btn btn-lg btn-block btn-success" href="/newOrder/save"/>ZAMÓW</a>
-            </sec:authorize>
-            <sec:authorize access="isAnonymous()">
-                <a class="btn btn-lg btn-block btn-success" href="/login"/>ZALOGUJ SIE BY ZAMÓWIĆ</a>
-            </sec:authorize>
-
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>Numer</th>
-                        <th>Nazwa</th>
-                        <th>Opis</th>
-                        <th>Opakowanie</th>
-                        <th>Cena</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${order.productList}" var="product">
-                        <tr>
-                            <td>${product.id}</td>
-                            <td>${product.name}</td>
-                            <td>${product.description}</td>
-                            <td>${product.box.name}</td>
-                            <td>${product.price}</td>
-                            <td>
-                                <a href="/newOrder/addProduct/<c:out value="${product.id}"/>">USUŃ</a>
-
-                            </td>
-                        </tr>
-                    </c:forEach>
 
                     </tbody>
                 </table>

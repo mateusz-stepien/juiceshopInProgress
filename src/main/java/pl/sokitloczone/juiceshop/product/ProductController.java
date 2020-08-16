@@ -24,7 +24,7 @@ public class ProductController {
 
     @ModelAttribute("boxNames")
     public List<Box> users(){
-        return boxService.findAllBoxes();
+        return boxService.findAllBox();
     }
 
     @GetMapping

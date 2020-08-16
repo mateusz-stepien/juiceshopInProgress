@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="templates/header.jsp"%>
@@ -29,38 +31,53 @@
             <div class="section" style="padding-bottom:5px;">
                 <h6 class="title-attr"><small>OPAKOWANIE</small></h6>
                 <div>
-                    <div class="attr2">${product.box.name}</div>
-                </div>
-            </div>
-            <div class="section" style="padding-bottom:20px;">
-                <h6 class="title-attr"><small>Ilość</small></h6>
-                <div>
-                    <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                    <input value="1" />
-                    <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+
+                    <h3 style="margin-top:0px;">${product.box.name}</h3>
+                    <h5>Sok dostepny również w poniższych opakowaniach:</h5>
+
+                    <c:forEach items="${boxes}" var="box">
+                        <ul>
+                            <li>${box.name}</li>
+                        </ul>
+                    </c:forEach>
+
+                    <!-- LISTA ROZWIJALNA
+                    <select id="box">
+                        <c:forEach items="${boxes}" var="box">
+                            <option value=1>${box.name}</option>
+                        </c:forEach>
+                    </select>
+                    -->
+
                 </div>
             </div>
 
             <!-- Botones de compra -->
             <div class="section" style="padding-bottom:20px;">
-                <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> KUP</button>
+
+                <sec:authorize access="isAnonymous()">
+                    <form action="<c:url value="/login"/>" method="post">
+                        <input class="btn btn-lg btn-block btn-success" type="submit" value="Zaloguj się by zamówić">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <a class="btn btn-lg btn-block btn-success" href="/newOrder/addProduct/<c:out value="${product.id}"/>" role="button">DODAJ DO ZAMÓWIANIA</a>
+                </sec:authorize>
+
             </div>
         </div>
 
         <div class="col-xs-9">
                 <!---------------------------------- OPIS PRODUKTU ------------------------------------------------------------- -->
-
             <div style="width:100%;border-top:1px solid silver">
                 <p style="padding:15px;">
 
                         ${product.description}
-
                 </p>
             </div>
             <div style="width:100%;border-top:1px solid silver">
             </div>
-
-
         </div>
     </div>
 </div>

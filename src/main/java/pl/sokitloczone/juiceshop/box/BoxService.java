@@ -21,7 +21,7 @@ public class BoxService {
         this.productRepository = productRepository;
     }
 
-    public List<Box> findAllBoxes(){
+    public List<Box> findAllBox(){
         return boxRepository.findAll();
     }
 
@@ -32,7 +32,7 @@ public class BoxService {
     public void saveBox(Box box){
         boxRepository.save(box);
     }
-
+/*
     public void deleteBox(Box box){
         List<Product> productList = productRepository.findAllByBox(box);
         for(Product productEach : productList){
@@ -41,5 +41,5 @@ public class BoxService {
         productRepository.saveAll(productList);
         boxRepository.delete(box);
     }
-
+*/
 }

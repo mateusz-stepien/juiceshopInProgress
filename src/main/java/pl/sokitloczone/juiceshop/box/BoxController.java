@@ -7,7 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/admin/box")
+@RequestMapping("/box")
 public class BoxController {
 
     private BoxService boxService;
@@ -19,8 +19,8 @@ public class BoxController {
 
     @GetMapping
     public String findAllBoxes(Model model){
-        model.addAttribute("boxes", boxService.findAllBoxes());
-        return "boxes";
+        model.addAttribute("boxes", boxService.findAllBox());
+        return "boxList";
     }
 
     @GetMapping(path = "/update/{id}")
@@ -43,10 +43,11 @@ public class BoxController {
         model.addAttribute("box", new Box());
         return "boxForm";
     }
-
+/*
     @GetMapping(path = "/delete/{id}")
     public String deleteBox(@ModelAttribute Box box){
         boxService.deleteBox(box);
         return "redirect:/admin/box";
     }
+    */
 }

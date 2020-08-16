@@ -1,14 +1,16 @@
 package pl.sokitloczone.juiceshop.orders;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.sokitloczone.juiceshop.box.BoxService;
 import pl.sokitloczone.juiceshop.product.ProductService;
+import pl.sokitloczone.juiceshop.user.CurrentUser;
 import pl.sokitloczone.juiceshop.user.UserService;
 
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 
 
 @Controller
@@ -18,19 +20,20 @@ public class NewOrderController {
     private OrderService orderService;
     private ProductService productService;
     private UserService userService;
+    private BoxService boxService;
 
     @Autowired
-    public NewOrderController(OrderService orderService, ProductService productService, UserService userService) {
+    public NewOrderController(OrderService orderService, ProductService productService, UserService userService, BoxService boxService) {
         this.productService = productService;
         this.orderService = orderService;
         this.userService = userService;
+        this.boxService = boxService;
 
     }
 
-
     @GetMapping("/addProduct/{id}")
-    public String addProductToOrder(@PathVariable("id") Long id, HttpSession session){
-        Order newOrder = orderService.addProductToOrder(productService.findProductById(id), userService.findByUserName("admin"), session);
+    public String addProductToOrder(@PathVariable("id") Long id, @AuthenticationPrincipal CurrentUser customUser, HttpSession session){
+        Order newOrder = orderService.addProductToOrder(productService.findProductById(id), userService.findByUserName(customUser.getUsername()), session);
         session.setAttribute("order", newOrder);
         return "redirect:/newOrder";
     }
@@ -38,6 +41,7 @@ public class NewOrderController {
     @GetMapping
     public String showOrder(Model model){
         model.addAttribute("products", productService.findAllProducts());
+        model.addAttribute("boxes",boxService.findAllBox());
         return "newOrder";
     }
 

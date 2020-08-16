@@ -2,6 +2,8 @@
 
 insert into product (description, name) values ('Sok jabłkowy 100% stanowi świetną alternatywę dla słodzonych cukrem napojów owocowych. Świeży, naturalny smak z powodzeniem zastąpi każdy syntetyczny dodatek. Słodki sok z pewnością zasmakuje również dzieciom. To doskonały dodatek do obiadu albo element śniadania lub podwieczorku. Jest lekkostrawny i niskokaloryczny, dlatego nadaje się także dla osób na diecie odchudzającej.','Sok jabłkowy');
 insert into product (description, name) values ('Sok Jabłkowo (70%)-wiśniowy (30%), naturalnie mętny,otrzymany w wyniku tłoczenia miazgi jabłkowej, bez udziału enzymów, filtrowany, pasteryzowany, bez dodatku jakichkolwiek substancji dodatkowych, rozlewany na gorąco w atmosferze azotu i pakowany w systemie bag in box.','Sok jabłkowo-wisniowy');
+insert into product (description, name) values ('Sok Jabłkowo (70%)-wiśniowy (30%), naturalnie mętny,otrzymany w wyniku tłoczenia miazgi jabłkowej, bez udziału enzymów, filtrowany, pasteryzowany, bez dodatku jakichkolwiek substancji dodatkowych, rozlewany na gorąco w atmosferze azotu i pakowany w systemie bag in box.','Sok jabłkowo-wisniowy');
+insert into product (description, name) values ('Sok Jabłkowo (50%)-marchwiowy (50%), naturalnie mętny,otrzymany w wyniku tłoczenia miazgi jabłkowej, bez udziału enzymów, filtrowany, pasteryzowany, bez dodatku jakichkolwiek substancji dodatkowych, rozlewany na gorąco w atmosferze azotu i pakowany w systemie bag in box.','Jabłkowo-marchwiowy');
 insert into product (description, name) values ('Sok Jabłkowo (50%)-marchwiowy (50%), naturalnie mętny,otrzymany w wyniku tłoczenia miazgi jabłkowej, bez udziału enzymów, filtrowany, pasteryzowany, bez dodatku jakichkolwiek substancji dodatkowych, rozlewany na gorąco w atmosferze azotu i pakowany w systemie bag in box.','Jabłkowo-marchwiowy');
 
 insert into box (name, description) values ('Karton 3l','Bag-in-box to opakowanie złożone z miękkiego, plastikowego pojemnika umieszczonego wewnątrz tekturowego pudełka z nadrukiem. System ten daje olbrzymie możliwości każdemu, kto produkuje, transportuje i sprzedaje produkty płynne i produkty luzem. ');
@@ -11,6 +13,8 @@ insert into box (name, description) values ('Butelka 0,5l','Butelka szklana SOCZ
 UPDATE product SET price = "10", box_id = 1 WHERE id = 1;
 UPDATE product SET price = "15", box_id = 2 WHERE id = 2;
 UPDATE product SET price = "18", box_id = 3 WHERE id = 3;
+UPDATE product SET price = "18", box_id = 1 WHERE id = 5;
+UPDATE product SET price = "18", box_id = 1 WHERE id = 4;
 
 INSERT INTO `role` (`id`, `name`) VALUES (NULL, 'ROLE_USER');
 INSERT INTO `role` (`id`, `name`) VALUES (NULL, 'ROLE_ADMIN');

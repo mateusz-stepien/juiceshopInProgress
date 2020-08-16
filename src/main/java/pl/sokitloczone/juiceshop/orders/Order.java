@@ -6,7 +6,6 @@ import pl.sokitloczone.juiceshop.user.User;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +23,6 @@ public class Order {
     @ManyToOne
     private User user;
 
-    private String status = "CREATED";
     /**PAYPAL order_status
      * order_status enum
      * The order status. The possible values are:
@@ -34,12 +32,14 @@ public class Order {
      * VOIDED. All purchase units in the order are voided.
      * COMPLETED. The payment was authorized or the authorized payment was captured for the order.
      */
+    private String status = "CREATED";
 
     @ManyToMany
     @JoinTable(name = "order_product",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> productList = new ArrayList<>();
+
 
     @Override
     public String toString() {
@@ -51,11 +51,7 @@ public class Order {
                 ", productList=" + productList +
                 '}';
     }
-    /*
-    private Order() {
-        this.created = LocalDateTime.now();
-    }
-*/
+
     public Long getId() {
         return id;
     }
@@ -68,8 +64,8 @@ public class Order {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
+    public void setCreated() {
+        this.created = LocalDateTime.now() ;
     }
 
     public User getUser() {

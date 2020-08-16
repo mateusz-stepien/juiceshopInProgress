@@ -3,12 +3,10 @@ package pl.sokitloczone.juiceshop.product;
 import com.sun.istack.NotNull;
 import org.hibernate.validator.constraints.Length;
 import pl.sokitloczone.juiceshop.box.Box;
-import pl.sokitloczone.juiceshop.orders.Order;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Product {

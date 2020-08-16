@@ -48,6 +48,7 @@ public class OrderService {
     }
 
     public void saveOrder(Order order){
+        order.setCreated();
         orderRepository.save(order);
     }
 

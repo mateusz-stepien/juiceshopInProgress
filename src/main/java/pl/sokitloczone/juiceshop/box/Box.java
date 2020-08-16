@@ -65,4 +65,6 @@ public class Box {
     public void setProductSet(Set<Product> productSet) {
         this.productSet = productSet;
     }
+
+
 }
