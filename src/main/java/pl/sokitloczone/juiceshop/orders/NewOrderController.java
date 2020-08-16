@@ -53,6 +53,12 @@ public class NewOrderController {
         return "redirect:/";
     }
 
+    @GetMapping(path = "/myOrders")
+    public String findOrderByUserId(Model model, @AuthenticationPrincipal CurrentUser customUser){
+        model.addAttribute("orders", orderService.findAllUserOrders(customUser.getUser().getId()));
+        return "myOrders";
+    }
+
 
 
 

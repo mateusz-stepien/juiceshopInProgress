@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().exceptionHandling().accessDeniedPage("/403")
                 .and().logout().logoutSuccessUrl("/");
     }
+    // ADMIN PASSWORD:123
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

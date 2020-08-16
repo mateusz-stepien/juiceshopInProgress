@@ -52,9 +52,12 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal"><a  href="/">sokitloczone.pl</a></h5>
     <nav class="my-2 my-md-0 mr-md-3">
+        <sec:authorize access="isAuthenticated()">
+        <a class="p-1 text-dark" href="/newOrder/myOrders/">Moje zamówienia</a>
+        </sec:authorize>
         <a class="p-1 text-dark" href="/juices">Soki</a>
         <a class="p-2 text-dark" href="/box">Opakowania</a>
-        <a class="p-2 text-dark" href="/newOrder">Zamówienie</a>
+        <a class="p-2 text-dark" href="/newOrder">Koszyk</a>
         <a class="p-2 text-dark" href="/adminPanel">Panel administratora</a>
     </nav>
 
@@ -69,6 +72,6 @@
             <input class="btn btn-outline-primary" type="submit" value="Zaloguj się">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
-    </sec:authorize>
+    </sec:authorize>termi
 
 </div>

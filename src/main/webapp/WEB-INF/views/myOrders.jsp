@@ -8,41 +8,9 @@
     <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/adminPanel/">
-                            <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminPanel/orders">
-                            <span data-feather="file"></span>
-                            Orders
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminPanel/products">
-                            <span data-feather="shopping-cart"></span>
-                            Products
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminPanel/users/">
-                            <span data-feather="users"></span>
-                            Customers
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Integrations
-                        </a>
-                    </li>
-                </ul>
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Dodaj nowe zamówienie</span>
+                    <span>Twoje zamówienia</span>
                     <a class="d-flex align-items-center text-muted" href="/newOrder/">
                         <span data-feather="plus-circle"></span>
                     </a>
@@ -52,8 +20,6 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
-
 
 
             <h2>Zamówienia</h2>
@@ -67,7 +33,6 @@
                         <th>Status zamówienia</th>
                         <th>Wartość zamówienia</th>
                         <th>Szczegóły</th>
-                        <th>Usuń</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -79,9 +44,6 @@
                         <td>${order.status}</td>
                         <td></td>
                         <td><a href="/adminPanel/orders/details/<c:out value="${order.id}"/>">SZCZEGÓŁY</a></td>
-                        <td>
-                            <a href="/adminPanel/orders/delete/<c:out value="${order.id}"/>">Usuń</a>
-                        </td>
                     </tr>
                     </c:forEach>
                     </tbody>

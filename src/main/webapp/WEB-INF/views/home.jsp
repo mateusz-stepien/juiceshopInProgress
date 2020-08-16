@@ -10,9 +10,9 @@
 <div class="container">
     <div class="card-deck mb-3 text-center">
 
-<!-- /////////////////////////////////////////////////////////////////////////-->
+<!--  ---------------------------------MAIN BODY ---------------------------------->
 
-        <c:forEach items="${products}" var="product">
+        <c:forEach items="${products}" var="product" begin="0" end="2">
 
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
@@ -24,7 +24,10 @@
                         <li>${product.description}</li>
                         <li></li>
                         <li></li>
-                        <li><a href="/newOrder/addProduct/<c:out value="${product.id}"/>">DODAJ DO KOSZYKA</a></li>
+                        <sec:authorize access="isAuthenticated()">
+                            <li><a href="/newOrder/addProduct/<c:out value="${product.id}"/>">DODAJ DO KOSZYKA</a></li>
+                        </sec:authorize>
+
                         <li></li>
                     </ul>
                     <a class="btn btn-lg btn-block btn-success" href="/productDetails/<c:out value="${product.id}"/>" role="button">SZCZEGÓŁY</a>
@@ -33,7 +36,7 @@
 
         </c:forEach>
 
-        <!-- /////////////////////////////////////////////////////////////////////////-->
+        <!-- -------------------------MAIN BODY ------------------------------------->
     </div>
 
 

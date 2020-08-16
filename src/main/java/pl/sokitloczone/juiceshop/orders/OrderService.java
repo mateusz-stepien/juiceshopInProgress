@@ -6,6 +6,7 @@ import pl.sokitloczone.juiceshop.user.User;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -51,5 +52,22 @@ public class OrderService {
         order.setCreated();
         orderRepository.save(order);
     }
+
+    public List<Order> findAllUserOrders(Long id) {
+        /*
+        List<Order> allOrders = orderRepository.findAll();
+        List<Order> userOrders = new ArrayList<>();
+        Long userId;
+        for (Order order: allOrders
+        ) {
+            userId = order.getUser().getId();
+            if (userId == id){
+                userOrders.add(order);
+            }
+        }
+         */
+        return orderRepository.findAllByUserId(id);
+    }
+
 
 }

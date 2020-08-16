@@ -72,7 +72,7 @@
                         <th>Opis</th>
                         <th>Opakowanie</th>
                         <th>Szczegoły</th>
-                        <th>Edytuj/Usuń</th>
+                        <th>Usuń</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -84,9 +84,7 @@
                         <td>${product.box.name}</td>
                         <td><a href="/productDetails/<c:out value="${product.id}"/>">SZCZEGÓŁY</a></td>
                         <td>
-                            <a href="/adminPanel/products/edit/<c:out value="${product.id}"/>">Edytuj</a>
-                            /
-                            <a href="/adminPanel/products/delete/<c:out value="${product.id}"/>">Usuń</a>
+                             <a href="/adminPanel/products/delete/<c:out value="${product.id}"/>">Usuń</a>
                         </td>
                     </tr>
                     </c:forEach>

@@ -20,7 +20,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_id">NUMER</label>
             <div class="col-md-4">
-                <form:input placeholder="${product.id}" path="id" class="form-control input-md"/>
+                <form:input placeholder="${product.id}" path="product_id" class="form-control input-md"/>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_name">NAZWA</label>
             <div class="col-md-4">
-                <form:input placeholder="${product.name}" path="name" class="form-control input-md"/>
+                <form:input placeholder="${product.name}" path="product_name" class="form-control input-md"/>
             </div>
         </div>
 
