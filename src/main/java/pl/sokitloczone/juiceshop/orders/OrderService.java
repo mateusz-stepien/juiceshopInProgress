@@ -38,11 +38,14 @@ public class OrderService {
 
     public Order addProductToOrder(Product product, User user, HttpSession session){
         Order order = new Order();
-
+        Long totalOrder;
         if(session.getAttribute("order") == null){
             order.setUser(user);
+            order.setTotalOrder(product.getPrice());
         } else {
             order = (Order) session.getAttribute("order");
+            totalOrder = order.getTotalOrder();
+            order.setTotalOrder(totalOrder+product.getPrice());
         }
         order.getProductList().add(product);
         return order;
@@ -54,18 +57,6 @@ public class OrderService {
     }
 
     public List<Order> findAllUserOrders(Long id) {
-        /*
-        List<Order> allOrders = orderRepository.findAll();
-        List<Order> userOrders = new ArrayList<>();
-        Long userId;
-        for (Order order: allOrders
-        ) {
-            userId = order.getUser().getId();
-            if (userId == id){
-                userOrders.add(order);
-            }
-        }
-         */
         return orderRepository.findAllByUserId(id);
     }
 

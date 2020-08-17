@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-xs-4 item-photo">
             <!------ grafka ze stronty darogrodu.pl---------->
-            <img style="max-width:100%;" src="http://darogrodu.pl/wp-content/uploads/sok_jablko.png" />
+            <img style="max-width:100%;" src="http://darogrodu.pl/wp-content/uploads/2015/08/baginbox.png" />
         </div>
         <div class="col-xs-5" style="border:0px solid gray">
             <!-- NAZWA SOKU -->

@@ -40,6 +40,7 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> productList = new ArrayList<>();
 
+    private Long totalOrder;
 
     @Override
     public String toString() {
@@ -90,5 +91,17 @@ public class Order {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public Long getTotalOrder() {
+        return totalOrder;
+    }
+
+    public void setTotalOrder(Long totalOrder) {
+        this.totalOrder = totalOrder;
     }
 }

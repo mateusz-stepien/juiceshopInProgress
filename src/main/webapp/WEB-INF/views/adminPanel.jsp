@@ -72,7 +72,7 @@
                         <td>${order.user.firstName} ${order.user.lastName}</td>
                         <td>${order.created}</td>
                         <td>${order.status}</td>
-                        <td></td>
+                        <td>${order.totalOrder} zł</td>
                         <td><a href="/adminPanel/orders/details/<c:out value="${order.id}"/>">SZCZEGÓŁY</a></td>
                         <td>
                         <td>
