@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.sokitloczone.juiceshop.orders.OrderService;
 import pl.sokitloczone.juiceshop.product.ProductService;
@@ -37,12 +39,16 @@ public class HomeController {
         return "adminPanel";
     }
 
-
-
     @GetMapping(path = "/register")
-    public String createUser(Model model){
+    public String registerUser(Model model) {
         model.addAttribute("user", new User());
-        return "userForm";
+        return "registerForm";
+    }
+
+    @PostMapping(path = "/register/save")
+    public String saveNewUser(@ModelAttribute("user") User user) {
+        userService.saveUser(user);
+        return "redirect:/login";
     }
 
 }
