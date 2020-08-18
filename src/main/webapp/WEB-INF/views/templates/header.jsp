@@ -11,6 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
+    <script src="https://www.paypal.com/sdk/js?client-id=AT0UIeHNrIV6uXQsvtYcw1yg-PfOqL_zKqmD2W5SETZ8Mcc9tveVLkOOB8WbI80dfobCrt0DZJ69Jkoi"></script>
+
     <title>Soki tłoczone</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/pricing/">

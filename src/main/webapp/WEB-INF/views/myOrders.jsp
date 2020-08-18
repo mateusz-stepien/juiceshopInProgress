@@ -10,7 +10,7 @@
             <div class="sidebar-sticky">
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Twoje zamówienia</span>
+                    <span>Dodaj zamówienie</span>
                     <a class="d-flex align-items-center text-muted" href="/newOrder/">
                         <span data-feather="plus-circle"></span>
                     </a>
@@ -22,7 +22,7 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
 
-            <h2>Zamówienia</h2>
+            <h2>Twoje zamówienia</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>

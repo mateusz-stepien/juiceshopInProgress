@@ -34,7 +34,7 @@ public class User {
     private String street;
 
     @NotBlank
-    //@Email
+    @Email
     private String email;
 
     @NotBlank

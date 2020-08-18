@@ -10,9 +10,7 @@ import javax.mail.internet.MimeMessage;
 
 @Service
 public class MailService {
-    /*FROM:
-    https://bykowski.pl/spring-boot-20-konfigurowanie-klienta-pocztowego/
-     */
+
     private JavaMailSender javaMailSender;
 
     @Autowired

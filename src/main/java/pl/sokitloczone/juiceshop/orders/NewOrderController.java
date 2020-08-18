@@ -61,6 +61,12 @@ public class NewOrderController {
         return "redirect:/";
     }
 
+    @GetMapping(path = "/{id}")
+    public String findAllProductsByBoxId(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("products", productService.findAllProductsByBoxId(id));
+        return "newOrder";
+    }
+
     @GetMapping(path = "/myOrders")
     public String findOrderByUserId(Model model, @AuthenticationPrincipal CurrentUser customUser){
         model.addAttribute("orders", orderService.findAllUserOrders(customUser.getUser().getId()));

@@ -20,12 +20,12 @@
 
 
             <h2>Lista dostępnych produktów</h2>
-            Soki w opakowaniach:
-            <select id="box">
+            WYBIERZ OPAKOWANIE:
+
                 <c:forEach items="${boxes}" var="box">
-                    <option value=${box.id}>${box.name}</option>
+                    <a class="btn btn-success" role="button" href="newOrder/${box.id}">${box.name}</a>
                 </c:forEach>
-            </select>
+
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -41,7 +41,6 @@
                     <tbody>
 
                     <c:forEach items="${products}" var="product">
-
                             <td>${product.id}</td>
                             <td>${product.name}</td>
                             <td>${product.description}</td>
@@ -51,6 +50,7 @@
                                 <a href="/newOrder/addProduct/<c:out value="${product.id}"/>">DODAJ DO ZAMÓWIENIA</a>
 
                             </td>
+
                         </tr>
                     </c:forEach>
 
@@ -99,7 +99,7 @@
         </main>
     </div>
 </div>
-
+<div id="paypal-button-container"></div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
