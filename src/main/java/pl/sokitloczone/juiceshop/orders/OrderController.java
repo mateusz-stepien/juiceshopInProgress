@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.sokitloczone.juiceshop.user.CurrentUser;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/adminPanel/orders")
 public class OrderController {

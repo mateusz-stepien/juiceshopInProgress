@@ -73,8 +73,11 @@ public class NewOrderController {
         return "myOrders";
     }
 
-
-
-
+    @GetMapping("/delete/{id}")
+    public String deleteProductFromOrder(@PathVariable("id") Long id, HttpSession session){
+        Order newOrder = orderService.deleteProductFromOrder(productService.findProductById(id),  session);
+        session.setAttribute("order", newOrder);
+        return "redirect:/newOrder";
+    }
 
 }

@@ -85,9 +85,9 @@
                             <td>${product.name}</td>
                             <td>${product.description}</td>
                             <td>${product.box.name}</td>
-                            <td>${product.price}</td>
+                            <td>${product.price} zł</td>
                             <td>
-                                <a href="/newOrder/addProduct/<c:out value="${product.id}"/>">USUŃ</a>
+                                <a href="/newOrder/delete/<c:out value="${product.id}"/>">USUŃ</a>
 
                             </td>
                         </tr>

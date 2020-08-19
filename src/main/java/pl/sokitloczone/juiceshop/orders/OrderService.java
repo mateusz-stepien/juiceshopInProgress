@@ -60,5 +60,26 @@ public class OrderService {
         return orderRepository.findAllByUserId(id);
     }
 
+    public Order deleteProductFromOrder(Product product, HttpSession session){
+        Order order = new Order();
+        int toDelete = 0;
+        Long searchedProduct = product.getId();
+        if(session.getAttribute("order") != null){
+            order = (Order) session.getAttribute("order");
+            List<Product> orderList = order.getProductList();
+            int counter = 0;
+            for (Product eachProduct: orderList
+                 ) {
+                counter = counter + 1;
+                if (eachProduct.getId() == searchedProduct){
+                    toDelete = counter-1;
+                }
+            }
+        }
+
+        order.getProductList().remove(toDelete);
+        return order;
+    }
+
 
 }
