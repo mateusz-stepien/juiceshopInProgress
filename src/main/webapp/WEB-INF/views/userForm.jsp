@@ -20,7 +20,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="id">NUMER</label>
             <div class="col-md-4">
-                <form:input placeholder="${user.id}" path="id" class="form-control input-md"/>
+                <form:input placeholder="${user.id}" path="id" class="form-control input-md" readonly="true"/>
             </div>
         </div>
 

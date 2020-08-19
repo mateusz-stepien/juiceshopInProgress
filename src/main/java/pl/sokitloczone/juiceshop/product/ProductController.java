@@ -36,6 +36,7 @@ public class ProductController {
     @GetMapping(path = "/add")
     public String addProduct(Model model){
         model.addAttribute("product", new Product());
+        model.addAttribute("boxes", boxService.findAllBox());
         return "productForm";
     }
 
@@ -47,6 +48,7 @@ public class ProductController {
 
     @GetMapping(path = "/edit/{id}")
     public String editProduct(@PathVariable("id") Long id, Model model){
+        model.addAttribute("boxes", boxService.findAllBox());
         model.addAttribute("product", productService.findProductById(id));
         return "productForm";
     }
