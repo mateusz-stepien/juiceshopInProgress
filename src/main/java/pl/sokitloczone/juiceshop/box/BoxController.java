@@ -30,12 +30,9 @@ public class BoxController {
     }
 
     @PostMapping(path = "/save")
-    public String saveBox(@ModelAttribute("box") Box box, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            return "boxForm";
-        }
+    public String saveBox(@ModelAttribute("box") Box box){
         boxService.saveBox(box);
-        return "redirect:/admin/box";
+        return "redirect:/box";
     }
 
     @GetMapping(path = "/create")

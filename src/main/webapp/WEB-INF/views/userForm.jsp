@@ -52,7 +52,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="email">EMAIL</label>
             <div class="col-md-4">
-                <form:input placeholder="${user.email}" path="email" class="form-control input-md"/>
+                <form:input placeholder="${user.email}" path="email" class="form-control input-md" />
                 </select>
             </div>
         </div>

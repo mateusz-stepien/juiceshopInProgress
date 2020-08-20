@@ -20,6 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/newOrder/").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/adminPanel/**").hasRole("ADMIN")
+                .antMatchers("/box/create/").hasRole("ADMIN")
                 .and().formLogin()
                 .loginPage("/login")
                 .and().exceptionHandling().accessDeniedPage("/403")

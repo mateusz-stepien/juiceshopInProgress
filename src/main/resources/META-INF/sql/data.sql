@@ -12,9 +12,9 @@ insert into box (name, description) values ('Butelka 0,5l','Butelka szklana SOCZ
 
 UPDATE product SET price = "10", box_id = 1 WHERE id = 1;
 UPDATE product SET price = "15", box_id = 2 WHERE id = 2;
-UPDATE product SET price = "18", box_id = 3 WHERE id = 3;
+UPDATE product SET price = "18", box_id = 1 WHERE id = 3;
 UPDATE product SET price = "18", box_id = 1 WHERE id = 5;
-UPDATE product SET price = "18", box_id = 1 WHERE id = 4;
+UPDATE product SET price = "18", box_id = 3 WHERE id = 4;
 
 INSERT INTO `role` (`id`, `name`) VALUES (NULL, 'ROLE_USER');
 INSERT INTO `role` (`id`, `name`) VALUES (NULL, 'ROLE_ADMIN');

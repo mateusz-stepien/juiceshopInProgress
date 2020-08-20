@@ -32,7 +32,6 @@
                         <th>Data zamówiania</th>
                         <th>Status zamówienia</th>
                         <th>Wartość zamówienia</th>
-                        <th>Szczegóły</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,7 +42,6 @@
                         <td>${order.created}</td>
                         <td>${order.status}</td>
                         <td>${order.totalOrder} zł</td>
-                        <td><a href="/adminPanel/orders/details/<c:out value="${order.id}"/>">SZCZEGÓŁY</a></td>
                     </tr>
                     </c:forEach>
                     </tbody>
