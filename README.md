@@ -4,7 +4,7 @@
 Backend application of online store selling pressed juices from a small home press.
 ### Functionalities:
 • Shopping cart
-• User registration (+ preview of order history)
+ - • User registration (+ preview of order history)
 • Possibility to place an order without registration
 • Product selection (juice type)
 • Choice of packaging (type of box / bottle) and quantity
